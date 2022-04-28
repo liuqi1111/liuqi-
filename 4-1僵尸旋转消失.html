@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function animate(){
+            js.y=js.y-1;
+            js.x=js.x+1;
+            js.scale.x*=0.999;
+            js.scale.y*=0.999;
+            js.rotation+=0.031;
+//              function animate() {    
+//           js.y -=1;    
+//           js.x +=1.5;
+//           js.scale.x*=0.997;   
+//           js.scale.y*=0.997;   
+//           js.rotation+=0.03;
+
+            
+        }
+        var app=new PIXI.Application(600,600);
+        document.body.appendChild(app.view);
+
+        var js=new PIXI.Sprite.fromImage("img/js2.png");
+        js.y=450;
+        app.stage.addChild(js);
+        app.ticker.add(animate);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(600,450);    
+        document.body.appendChild (app.view);     
+        var plane = new PIXI.Sprite.fromImage("img/changzheng.jpg");        
+        app.stage.addChild(plane);
+        var score=new PIXI.Text("fdsssdrf");
+        score.text="红军长征路线图";
+        score.style.fill = "#ff0000";
+        app.stage.addChild(score);
+        score.x=400;
+        score.y=10;
+    </script>
+</body>
+</html>

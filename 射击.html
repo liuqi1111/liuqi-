@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function movePlane(event) {
+            zhun.anchor.set(0.5,0.5);     
+            var pos = event.data.getLocalPosition(app.stage);    
+            zhun.x = pos.x;    
+            zhun.y = pos.y;
+        }
+        
+        var app= new PIXI.Application(800,600);
+        document.body.appendChild(app.view);
+
+        var plane=new PIXI.Sprite.fromImage('img/bg1.jpg');
+        app.stage.addChild(plane);
+
+        var zhun=new PIXI.Sprite.fromImage('img/zhunxing.png');
+        app.stage.addChild(zhun);
+
+        plane.interactive=true;
+        plane.on('mousemove',movePlane);
+
+        var score1 = new PIXI.Text("飞机游戏");
+        score1.Text="aaa";
+        score1.style.fill = "#fff";
+        score1.x=50;
+        score1.y=450;
+        app.stage.addChild(score1); 
+        score1.interactive=true;
+        score1('onmousemove',onmousemove);
+        
+    </script>
+    <script type="text/javascript">
+        document.onmousemove = function(e){
+        var loc = "当前位置 x:"+e.pageX+",y:"+e.pageY
+        document.getElementById("point-loc").innerHTML = loc;
+        }
+    </script>
+    <div id="point-loc"></div> 
+</body>
+</html>

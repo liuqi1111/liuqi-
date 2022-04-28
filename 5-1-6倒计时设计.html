@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(500, 800);
+        document.body.appendChild(app.view);
+
+        var jdt = new PIXI.Sprite.fromImage('img/tiao.png');
+        app.stage.addChild(jdt);
+
+        var start = new PIXI.Sprite.fromImage('img/start.png');
+        start.x = 130;
+        start.y = 400;
+        app.stage.addChild(start);
+
+        var textBox = new PIXI.Text("60");
+        textBox.style.fill = 0xffffff;
+        textBox.x = 430;
+        app.stage.addChild(textBox);
+
+        lefttime = 60;
+        var run = '运';
+
+        app.ticker.add(function() {
+
+            if (run == '运') {
+                lefttime = lefttime - 1 / 60;
+                textBox.text = parseInt(lefttime);
+                jdt.width = jdt.width - 2 / 3;
+                if (lefttime <= 0) {
+                    run = '停';
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

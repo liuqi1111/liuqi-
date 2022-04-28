@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app= new PIXI.Application(500,800);
+        document.body.appendChild(app.view);
+
+        var bj=new PIXI.Sprite.fromImage('img/bg4.png');
+        app.stage.addChild(bj);
+
+        var shangcheng=new PIXI.Sprite.fromImage('img/btn1.png');
+        shangcheng.y=100;
+        app.stage.addChild(shangcheng);
+
+        
+        var paimai=new PIXI.Sprite.fromImage('img/btn0.png');
+        paimai.y=200;
+        app.stage.addChild(paimai);
+
+        var sc=new PIXI.Sprite.fromImage('img/gameoverPanel.png');
+        app.stage.addChild(sc);
+        sc.visible = false; 
+        shangcheng.interactive = true;
+        shangcheng.on('click',function(){sc.visible = true;});
+
+        var gb=new PIXI.Sprite.fromImage('img/close.png');
+        gb.x=370;
+        gb.y=40;
+        sc.addChild(gb);
+
+        gb.interactive =true;
+        gb.on('click',function(){sc.visible = false;})
+    
+        var wbk_bt=new PIXI.Text('商店');
+        wbk_bt.x=190;
+        wbk_bt.y=30;
+        sc.addChild(wbk_bt);
+
+        var dj=new PIXI.Sprite.fromImage('img/img_plane_item_05.png');
+        dj.x=80;
+        dj.y=200;
+        sc.addChild(dj);
+
+        var wbk_jg=new PIXI.Text('200金币');
+        wbk_jg.x=250;
+        wbk_jg.y=235;
+        sc.addChild(wbk_jg);
+    </script>
+</body>
+</html>

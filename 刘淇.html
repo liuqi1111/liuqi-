@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(500, 800);
+        document.body.appendChild(app.view);
+        var bg = new PIXI.Sprite.fromImage('img/bg2.png')
+        app.stage.addChild(bg);
+        var ren = new PIXI.Sprite.fromImage('img/tx.png');
+        app.stage.addChild(ren);
+        var num = 100;
+        var zhuangtai = '停';
+        var cishu = 0;
+        ren.interactive = true;
+        ren.on('click', function() {
+            zhuangtai = '闪';
+        });
+        app.ticker.add(function() {
+            if (zhuangtai == '闪') {
+                bg.x += num;
+                if (bg.x >= 200) {
+                    num = -num;
+                    cishu += 1;
+                }
+                if (bg.x <= -200) {
+                    num = -num;
+                    cishu += 1;
+                }
+                if (cishu >= 5) {
+                    zhuangtai = '停';
+                    bg.x = 0;
+                    cishu = 0;
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>

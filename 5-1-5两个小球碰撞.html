@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(1008, 600);
+        document.body.appendChild(app.view);
+
+        var bj = new PIXI.Sprite.fromImage("img/bg1.png");
+        app.stage.addChild(bj);
+
+        var ball1 = new PIXI.Sprite.fromImage("img/qiu1.png");
+        ball1.x = 150;
+        ball1.y = 100;
+        app.stage.addChild(ball1);
+
+        var ball2 = new PIXI.Sprite.fromImage("img/qiu2.png");
+        ball2.x = 600;
+        ball2.y = 100;
+        app.stage.addChild(ball2);
+
+        leftp = 'you'
+        leftq = 'you'
+        app.ticker.add(function () {
+            if (leftp == 'you') {
+                ball1.x += 1;
+                if (ball1.x + 196 >= ball2.x) {
+                    leftp = 'zuo';
+                }
+            }
+            if (leftp == 'zuo') {
+                ball1.x -= 1;
+                if (ball1.x <=0) {
+                    leftp = 'you';
+                }
+            }
+            if (leftq == 'you') {
+                ball2.x -= 1;
+                if (ball2.x -196<=ball1.x) {
+                    leftq = 'zuo';
+                }
+            }
+            if (leftq == 'zuo') {
+                ball2.x += 1;
+                if (ball2.x >=1008-172) {
+                    leftq = 'you';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

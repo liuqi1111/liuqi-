@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(500, 700);
+        document.body.appendChild(app.view);
+        var bg = new PIXI.Sprite.fromImage("img/bg_02.png");
+        app.stage.addChild(bg);
+        var button = new PIXI.Sprite.fromImage("img/gameover.png");
+        button.visible = false;
+        app.stage.addChild(button);
+
+        var text = new PIXI.Text("游戏结束倒计时：10")
+        text.style.fill = 0xffffff;
+        app.stage.addChild(text);
+
+        var a = 10;
+        bg.interactive = true;
+        bg.on('click', function () {
+            a = a - 1;
+            text.text = '游戏结束倒计时：' + a;
+            if (a == 0) {
+                button.visible = true;
+                a = 1;
+            }
+            
+        });
+    </script>
+</body>
+
+</html>

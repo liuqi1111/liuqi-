@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="pixi.min.js"></script>
+    <script>
+        function move() {
+            //this.y=this.y-50;
+
+            if (this.y < 300) {
+                this.y = this.y + 50;
+            } else {
+                this.y = this.y - 50;
+            }
+
+        }
+        var app = new PIXI.Application(1008, 640);
+        document.body.appendChild(app.view);
+        w = 50;
+        for (var i = 0; i <= 4; i++) {
+            fileName = 'dou' + i + '.png';
+            var dou = new PIXI.Sprite.fromImage('img/' + fileName);
+            dou.x = w + 50;
+            dou.y = 300;
+            app.stage.addChild(dou);
+            w = dou.x;
+
+            dou.interactive = true;
+            dou.on('click', move);
+            dou.buttonMode = true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(512,768) ;
+        document.body.appendChild(app.view);
+        var beijing = new PIXI.Sprite.fromImage('img/img_bg_level_3.jpg');
+        app.stage.addChild(beijing);
+        
+        var plane = new PIXI.Sprite.fromImage('img/plane_blue_01.png');
+        plane.x=200;
+        plane.y=600;
+        app.stage.addChild(plane);
+
+        var xuetiao0 = new PIXI.Sprite.fromImage('img/2_03.png');
+        xuetiao0.x=20;
+        xuetiao0.y=5;
+        app.stage.addChild(xuetiao0);
+
+        var xuetiao1 = new PIXI.Sprite.fromImage('img/3_03.png');
+        xuetiao1.x=50;
+        xuetiao1.y=5;
+        app.stage.addChild(xuetiao1);
+        
+        var hp = new PIXI.Sprite.fromImage('img/img_ui_16.png');
+        app.stage.addChild(hp);
+
+        var yun = new PIXI.Sprite.fromImage('img/yun02.png');
+        yun.y=100;
+        app.stage.addChild(yun);
+        
+        var daoju = new PIXI.Sprite.fromImage('img/img_plane_item_15.png');
+        daoju.x=150;
+        daoju.y=300;
+        app.stage.addChild(daoju);
+
+        var score = new PIXI.Text("得分：560");  
+        score.text = "得分：10000";
+        score.style.fill = 0xffffff;
+        app.stage.addChild(score); 
+        score.x=350;
+        score.y=5;
+    </script>
+</body>
+</html>

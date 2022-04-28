@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <SCript src="./pixi.min.js"></SCript>
+    <script>
+        function move(event) {
+            ground.anchor.set(0.5, 0.5);
+            var pos = event.data.getLocalPosition(app.stage);
+            ground.x = pos.x;
+            if (ground.x <= 31) {
+                ground.x = 31;
+            }
+            if (ground.x >= 239) {
+                ground.x = 239;
+            }
+
+        }
+        var app = new PIXI.Application(270, 400);
+        document.body.appendChild(app.view);
+        var bj = new PIXI.Sprite.fromImage("img/bg4-2-2.png");
+        app.stage.addChild(bj);
+        var ground = new PIXI.Sprite.fromImage("img/ground4-2-2.png");
+        ground.x = 100;
+        ground.y = 360;
+        app.stage.addChild(ground);
+        ground.interactive = true;
+        ground.on('mousemove', move);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./pixi.min.js"></script>
+    <script>
+        function move(event) {
+            plane.anchor.set(0.5, 0.5);
+            var pos = event.data.getLocalPosition(app.stage);
+            plane.x = pos.x;
+            plane.y = pos.y;
+
+            plane.addChild(liaoji1);
+        }
+        var app = new PIXI.Application(512, 768);
+        document.body.appendChild(app.view);
+        var plane = new PIXI.Sprite.fromImage("img/plane_blue_01.png");
+        app.stage.addChild(plane);
+
+        plane.interactive = true;
+        plane.on('mousemove', move);
+
+        var liaoji1 = new PIXI.Sprite.fromImage("img/liaoji_01_11.png");
+        plane.addChild(liaoji1);
+        liaoji1.x = 60;
+        liaoji1.y = 47;
+
+        var liaoji2 = new PIXI.Sprite.fromImage("img/liaoji_01_11.png");
+        plane.addChild(liaoji2);
+        liaoji2.x = -60-65;
+        liaoji2.y = 47;
+
+    </script>
+</body>
+
+</html>

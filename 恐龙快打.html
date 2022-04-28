@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function move3(){
+            jack.x=jack.x-10;
+        }
+        function move4(){
+            jack.x=jack.x+10;
+        } 
+        function move1(){
+            jack.y=jack.y-10;
+        }
+        function move2(){
+            jack.y=jack.y+10; 
+        }    
+        
+        var app= new PIXI.Application(740,460);
+        document.body.appendChild(app.view);
+
+        var bj= new PIXI.Sprite.fromImage('img/bg.png');
+        app.stage.addChild(bj);
+
+        var jack= new PIXI.Sprite.fromImage('img/jack.png');
+        app.stage.addChild(jack);
+
+        var shang=new PIXI.Sprite.fromImage('img/shang.png');
+        shang.id=0;
+        shang.x=300;
+        shang.y=350;
+        app.stage.addChild(shang);
+        shang.interactive=true;
+        shang.on('click',move1);
+        
+        var xia=new PIXI.Sprite.fromImage('img/xia.png');
+        xia.id=1;
+        xia.x=300;
+        xia.y=410;
+        app.stage.addChild(xia);
+        xia.interactive=true;
+        xia.on('click',move2);
+
+        var zuo =new PIXI.Sprite.fromImage('img/zuo.png');
+        zuo.id=2;
+        zuo.x=240;
+        zuo.y=380;
+        app.stage.addChild(zuo);
+        zuo.interactive=true;
+        zuo.on('click',move3);
+        
+        var you =new PIXI.Sprite.fromImage('img/you.png');
+        you.id=3;
+        you.x=360;
+        you.y=380;
+        app.stage.addChild(you);
+        you.interactive=true;
+        you.on('click',move4);
+    </script>
+</body>
+</html>

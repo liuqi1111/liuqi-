@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(800,400);
+        document.body.appendChild(app.view);
+        var bj1=new PIXI.Sprite.fromImage('img/bg_back_02.png');
+        app.stage.addChild(bj1);
+        var bj2=new PIXI.Sprite.fromImage('img/bg_front_02.png');
+        bj2.y=200;
+        app.stage.addChild(bj2);
+        var dm=new PIXI.Sprite.fromImage('img/ground01_2.png');
+        dm.y=260;
+        app.stage.addChild(dm);
+        var renwu=new PIXI.Sprite.fromImage('img/player003.png');
+        renwu.y=180;
+        renwu.x=130;
+        app.stage.addChild(renwu);
+        var jb=new PIXI.Sprite.fromImage('img/gold.png');
+        jb.y=100;
+        jb.x=390;
+        app.stage.addChild(jb);
+        var gz=new PIXI.Sprite.fromImage('img/luzhang004.png');
+        gz.y=-200;
+        gz.x=600;
+        app.stage.addChild(gz);
+        var ty=new PIXI.Sprite.fromImage('img/jumpBtn.png');
+        ty.y=280;
+        ty.x=20;
+        ty.width=100;
+        ty.height=100;
+        app.stage.addChild(ty);
+        var xd=new PIXI.Sprite.fromImage('img/dunBtn.png');
+        xd.y=280;
+        xd.x=680;
+        xd.width=100;
+        xd.height=100;
+        app.stage.addChild(xd);
+
+    </script>
+</body>
+</html>

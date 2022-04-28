@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(500,550);
+        document.body.appendChild (app.view);
+        var bj =new PIXI.Sprite.fromImage("img/beijing.png");
+        app.stage.addChild(bj);
+        var csd =new PIXI.Sprite.fromImage("img/chuansongdai.png");
+        csd.y+=240;
+        app.stage.addChild(csd);
+
+        app.ticker.add(function(){
+            csd.x-=2;
+            if(csd.x<=500-1000){
+                csd.x=0;
+            }
+        });
+
+    </script>
+</body>
+</html>

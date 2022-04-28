@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><script src="./pixi.min.js"></script>
+    <script>
+    var app = new PIXI.Application(500, 700);
+    document.body.appendChild(app.view);
+    var plane = new PIXI.Sprite.fromImage("img/enemy_04.png");
+    app.stage.addChild(plane);
+
+    var start = new PIXI.Sprite.fromImage("img/start.png");
+    start.x=150;
+    start.y=450;
+    app.stage.addChild(start);
+    start.visiable=true;
+
+
+
+    var pause = new PIXI.Sprite.fromImage("img/ui_new_btn_png_03.png");
+    pause.x=150;
+    pause.y=450;
+    pause.visible=false;
+    app.stage.addChild(pause);
+
+    var jixu = new PIXI.Sprite.fromImage("img/ui_new_battle_png_03.png");
+    jixu.x=200;
+    jixu.y=450;
+    jixu.visible=false;
+    app.stage.addChild(jixu);
+    
+    
+    var planemove=0;
+    app.ticker.add(function(){
+        if(planemove==1){
+             plane.y+=1;
+        }
+       
+    });
+
+    start.interactive=true;
+    start.on('click',function(){
+        planemove=1;
+        start.visible=false;
+        pause.visible=true;
+    });
+
+    pause.interactive=true;
+    pause.on('click',function(){
+        planemove=0;
+        pause.visible=false;
+        jixu.visible=true;
+    });
+
+    jixu.interactive=true;
+    jixu.on('click',function(){
+        planemove=1;
+        jixu.visible=false;
+        pause.visible=true;
+    });
+    //编写轮播
+    </script>
+   
+</body>
+</html>

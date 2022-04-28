@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function animate() {
+            // myPlanes[0].y=myPlanes[0].y+0.1; 
+            // myPlanes[1].y=myPlanes[1].y+0.2; 
+            // myPlanes[2].y=myPlanes[2].y+0.3;
+            for(var i=0;i<=2;i++){
+                myPlanes[i].y=myPlanes[i].y+Math.random()*2;
+            }
+        }
+        var app = new PIXI.Application(500, 800);
+        document.body.appendChild(app.view);
+
+        var bj = new PIXI.Sprite.fromImage("img/img_bg_level_3.jpg");
+        app.stage.addChild(bj);
+       
+        var myPlanes=new Array();
+        var w=-100;
+        for (var i = 0; i <= 2; i++) {
+            var Plane = new PIXI.Sprite.fromImage("img/enemy_03.png");   
+            myPlanes.push(Plane);
+            Plane.x=w+110;
+            w=Plane.x;
+            app.stage.addChild(Plane);
+            app.ticker.add(animate);
+        }
+        
+    </script>
+</body>
+
+</html>

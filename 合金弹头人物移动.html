@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function move() {
+            var button=this.id;
+            if(button=='zuo'){
+                if(shang.id='right'){
+                shang.scale.x=1;
+                shang.x=shang.x-20;
+                }
+            }
+            if(button=='you'){
+                if(shang.id='left'){
+                    shang.scale.x=-1;
+                    shang.x=shang.x+20;
+                }  
+            }
+        }
+        var app= new PIXI.Application(700,400);
+        document.body.appendChild(app.view);
+        
+        var bj=new PIXI.Sprite.fromImage('img/bg3.png');
+        bj.width =700;
+        bj.height=400;
+        app.stage.addChild(bj);
+
+        var left=new PIXI.Sprite.fromImage('img/zuo.png');
+        left.x=20;
+        left.y=320;
+        left.id='zuo';
+        //Left.buttonMode = true;
+        app.stage.addChild(left);
+        left.interactive=true;
+        left.on('click',move);
+        left.on('mousemove',function(){this.buttonMode = true;});
+
+
+        var right=new PIXI.Sprite.fromImage('img/you.png');
+        right.x=80;
+        right.y=320;
+        right.id='you'
+        //right.buttonMode = true;
+        app.stage.addChild(right);
+        right.interactive=true;
+        right.on('click',move);
+        right.on('mousemove',function(){this.buttonMode = true;});
+
+        var shang=new PIXI.Sprite.fromImage('img/image1390.png');
+        //shang.scale.x=-1;
+        shang.x=100;
+        shang.y=100;
+        app.stage.addChild(shang);
+
+        var xia=new PIXI.Sprite.fromImage('img/image1334.png');
+        xia.x=35;
+        xia.y=53;
+        shang.addChild(xia);
+
+        
+        
+    </script>
+</body>
+</html>

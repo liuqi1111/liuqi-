@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function movePlane(event) {
+            plane.anchor.set(0.5,0.5);     
+            var pos = event.data.getLocalPosition(app.stage);    
+            plane.x = pos.x;    
+            plane.y = pos.y;
+             
+        }
+
+        var app= new PIXI.Application(500,700);
+        document.body.appendChild(app.view);
+
+        var plane=new PIXI.Sprite.fromImage('img/img_plane_enemy_04.png');
+        app.stage.addChild(plane);
+
+        plane.interactive=true;
+        plane.on('mousemove',movePlane);
+    </script>
+</body>
+</html>

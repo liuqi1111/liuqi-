@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(500, 350);
+        document.body.appendChild(app.view);
+        var bj = new PIXI.Sprite.fromImage("img/bg.png");
+        app.stage.addChild(bj);
+
+        var ball = new PIXI.Sprite.fromImage("img/ball.png");
+        ball.x = 200;
+        ball.y = 100;
+        app.stage.addChild(ball);
+
+
+        var cz = '下';
+        var sp = '右';
+
+        app.ticker.add(function () {
+            if (cz == '下') {
+                ball.y += 1;
+                if (ball.y >= 350 - 85) {
+                    cz = '上';
+
+                }
+            }
+            if (cz == '上') {
+                ball.y -= 1;
+                if (ball.y <= 0) {
+                    cz = '下';
+                }
+            }
+            if (sp == '右') {
+                ball.x += 1;
+                if (ball.x >= 500 - 94) {
+                    sp = '左'
+                }
+            }
+            if (sp == '左') {
+                ball.x -= 1;
+                if (ball.x <= 0) {
+                    sp = '右'
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

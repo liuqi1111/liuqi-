@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(512,768);
+        document.body.appendChild (app.view);
+        var plane =new PIXI.Sprite.fromImage("img/bg_01.png");
+        app.stage.addChild(plane);
+        var score = new PIXI.Text("得分：560");  
+        score.text = "得分：560";
+        score.style.fill = 0xffffff;
+        app.stage.addChild(score); 
+        score.x=25;
+        score.y=152;
+        var plane1 =new PIXI.Sprite.fromImage("img/plane_blue_01.png");
+        plane1.x=195;
+        plane1.y=175;
+        app.stage.addChild(plane1);
+    </script>
+    
+    
+</body>
+</html>

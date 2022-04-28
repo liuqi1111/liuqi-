@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(800, 1000);
+        document.body.appendChild(app.view);
+
+        // var zhuankuai = new PIXI.Sprite.fromImage('img/zhuankuai-3_10.png');
+        // app.stage.addChild(zhuankuai);
+
+        var pianyi = 100;
+        var lastx = 100 - 32;
+        var lasty = 100 - 32;
+        for (var j = 0; j < 5; j++) {
+            var zhuankuai = new PIXI.Sprite.fromImage('img/zhuankuai-3_10.png');
+            app.stage.addChild(zhuankuai);
+            lastx = zhuankuai.x += lastx + 32;
+            zhuankuai.x -= 32;
+            for (var i = 0; i < 5; i++) {
+                var zhuankuai = new PIXI.Sprite.fromImage('img/zhuankuai-3_10.png');
+                app.stage.addChild(zhuankuai);
+                zhuankuai.x += lastx;
+                lasty = zhuankuai.y = lasty + 32;
+                zhuankuai.y -= 32;
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

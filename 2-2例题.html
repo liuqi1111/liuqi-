@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(500, 700);
+        document.body.appendChild(app.view);
+
+        var plane = new PIXI.Sprite.fromImage("img/img_plane_enemy_04.png");
+        app.stage.addChild(plane);
+        //plane.width=500;
+        //plane.hright=500;
+        //plane.rotation=-1;
+        //plane.scale .y=2;   
+        //plane.scale .x=2;              
+        //plane.visible=true;
+        //plane.visible=false;             
+        //plane.alpha=0.5;  
+        var score = new PIXI.Text("飞机游戏");
+        score.text = "这个游戏很好玩";
+        score.style.fill = "#fff";
+        app.stage.addChild(score);    
+        score.style.fontSize = 50;//设置字体大小    
+        score.style.fontWeight = "bold";//加粗    
+        score.style.fontStyle = "italic";//斜体    
+        score.style.fontFamily = "华文行楷";//设置字体    
+        app.stage.addChild(score);
+
+
+
+    </script>
+</body>
+
+</html>

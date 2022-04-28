@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function move(event) {
+            ren.anchor.set(0.5, 0.93);
+            var pos = event.data.getLocalPosition(app.stage);
+            ren.x = pos.x;
+            ren.y = pos.y;
+        }
+        var app=new PIXI.Application(600,450);
+        document.body.appendChild(app.view);
+
+        var plane = new PIXI.Sprite.fromImage("img/changzheng.jpg");
+        app.stage.addChild(plane);
+
+        var ren = new PIXI.Sprite.fromImage('img/hj.png');
+        app.stage.addChild(ren);
+        ren.scale.x=0.5;
+        ren.scale.y=0.5;
+        ren.interactive = true;
+        ren.on('mousemove', move);
+
+        var tsk = new PIXI.Sprite.fromImage('img/mb.png');
+        tsk.scale.x=0.5;
+        tsk.scale.y=0.5;
+        tsk.x=350;
+        tsk.visible=false;
+        app.stage.addChild(tsk);
+
+        var an=new PIXI.Sprite.fromImage("img/an.png");
+        app.stage.addChild(an);
+        an.x=290;
+        an.y=330;
+        an.scale.x=0.6;
+        an.scale.y=0.5;
+        an.alpha=0;
+        an.interactive = true;
+        an.on('mouseover', function(){tsk.visible=true;});
+        an.on('mouseout', function(){tsk.visible=false;});
+    
+        var cha=new PIXI.Sprite.fromImage('img/close.png');
+        cha.x=340;
+        cha.y=10;
+        tsk.addChild(cha);
+
+        var wen=new PIXI.Text('遵义会议\nbbbbbbbbbbbbbbb');
+        wen.x=100;
+        wen.y=50;
+        tsk.addChild(wen);
+    </script>
+</body>
+</html>

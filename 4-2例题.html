@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function animate() {
+            greenPlane.y = greenPlane.y + 1;
+
+        }
+        var app = new PIXI.Application(500, 800);
+        document.body.appendChild(app.view);
+        var bj = new PIXI.Sprite.fromImage("img/img_bg_level_3.jpg");
+        app.stage.addChild(bj);
+        var greenPlane = new PIXI.Sprite.fromImage("img/img_plane_enemy_04.png");
+        app.stage.addChild(greenPlane);
+
+
+        app.ticker.add(animate);
+    </script>
+</body>
+
+</html>

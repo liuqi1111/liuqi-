@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(480,800);
+        document.body.appendChild(app.view);
+        var plane = new PIXI.Sprite.fromImage("img/bg_2.jpg");
+        app.stage.addChild(plane);
+        var plane1 =new PIXI.Sprite.fromImage("img/saiche-2_03.png");
+        plane1.x=270;
+        plane1.y=100;
+        app.stage.addChild(plane1);
+        var plane1 =new PIXI.Sprite.fromImage("img/saiche-3_03.png");
+        plane1.x=170;
+        plane1.y=500;
+        app.stage.addChild(plane1);
+    </script>
+</body>
+</html>

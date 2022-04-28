@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(500,500);
+        document.body.appendChild (app.view);
+
+        var q1 =new PIXI.Sprite.fromImage("img/qiu2.png");
+        app.stage.addChild(q1);
+        q1.x+=100;
+        q1.y+=100;
+        q1.anchor.set(0.5,0.5);
+        app.ticker.add(function(){q1.rotation+=0.01});
+        
+        var q2 =new PIXI.Sprite.fromImage("img/qiu2.png");
+        app.stage.addChild(q2); 
+        q2.x+=250;
+        app.ticker.add(function(){
+            q2.alpha-=0.1;
+            if(q2.alpha<=0){
+                q2.alpha=1;
+            }
+        });
+       
+        var q3 =new PIXI.Sprite.fromImage("img/qiu2.png");
+        q3.y+=250;
+        app.stage.addChild(q3);
+        app.ticker.add(function(){
+            
+               q3.scale.x-=1;
+               q3.scale.y-=1; 
+            
+        });
+       
+        var q4 =new PIXI.Sprite.fromImage("img/qiu2.png");
+        q4.x+=250;
+        q4.y+=250;
+        app.stage.addChild(q4);
+        app.ticker.add(function(){
+            q4.scale.x+=0.001;
+            // if(q4.scale.x=-1){
+            //     q4.scale.x=1;
+            // }
+            // else if(q4.scale.x=1){
+            //     q4.scale.x=-1;
+            // }
+        });
+
+    </script>
+</body>
+</html>

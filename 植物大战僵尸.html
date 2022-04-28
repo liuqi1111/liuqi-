@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app=new PIXI.Application(1008,640);
+        document.body.appendChild(app.view);
+        var bj = new PIXI.Sprite.fromImage("img/bg1.png");
+        app.stage.addChild(bj);
+        
+        var js1 = new PIXI.Sprite.fromImage("img/js1.png");
+        js1.x=780;
+        js1.y=350;
+        app.stage.addChild(js1);
+        
+        var js2 = new PIXI.Sprite.fromImage("img/js2.png");
+        js2.x=590;
+        js2.y=250;
+        app.stage.addChild(js2);
+        
+        var js3 = new PIXI.Sprite.fromImage("img/js3.png");
+        js3.x=590;
+        js3.y=150;
+        app.stage.addChild(js3);
+        
+        var js4 = new PIXI.Sprite.fromImage("img/js4.png");
+        js4.x=380;
+        js4.y=350;
+        app.stage.addChild(js4);
+        
+        var wp = new PIXI.Sprite.fromImage("img/item.png");
+        app.stage.addChild(wp);
+        
+        var wenben= new PIXI.Text("100");
+        app.stage.addChild(wenben);
+        wenben.x=15;
+        wenben.y=58;
+        wenben.style.fontSize = 25;
+
+        
+    </script>
+
+</body>
+</html>

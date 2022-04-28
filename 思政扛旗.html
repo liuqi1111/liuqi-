@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+         function move(event) {
+            hj.anchor.set(0.5, 0.5);
+            var pos = event.data.getLocalPosition(app.stage);
+            hj.x = pos.x;
+            hj.y = pos.y;
+        }
+        
+        var app = new PIXI.Application(600, 469);
+        document.body.appendChild(app.view);
+        
+        var plane = new PIXI.Sprite.fromImage("img/changzheng.jpg");
+        app.stage.addChild(plane);
+        
+        var hj = new PIXI.Sprite.fromImage('img/hj.png');
+        hj.scale.x=0.5;
+        hj.scale.y=0.5;
+        app.stage.addChild(hj);
+
+        hj.interactive = true;
+        hj.on('mousemove', move);
+
+        var flag= new PIXI.Sprite.fromImage('img/flag.png');
+        flag.scale.x=0.5;
+        flag.scale.y=0.5;
+        flag.x=145;
+        flag.y=-110;
+        flag.rotation=1
+        hj.addChild(flag);
+        
+    </script>
+</body>
+</html>

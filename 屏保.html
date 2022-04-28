@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./pixi.min.js"> 
+    </script>
+    <script>
+        var app=new PIXI.Application(500,350);    
+        document.body.appendChild (app.view);     
+        var plane=new PIXI.Sprite.fromImage("img/bg.png");        
+        app.stage.addChild(plane);
+        var score=new PIXI.Text("fdsssdrf");
+        score.text="屏幕保护系统";
+        score.style.fill = "#ff0000";
+        app.stage.addChild(score);
+        var plane1 =new PIXI.Sprite.fromImage("img/ball.png");
+        plane1.x=370;
+        plane1.y=170;
+        app.stage.addChild(plane1);
+    </script>
+    </script>
+</body>
+</html>

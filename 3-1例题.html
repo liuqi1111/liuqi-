@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function click_test() {
+            plane.y=plane.y+100;
+        }
+        function mousemove_test() {
+            alert("ceshiskshjk");
+        }
+        function mousedown_test() {
+            alert("down");
+        }
+        function mousedup_test() {
+            alert("我松手了");
+        }
+        function mouseover_test() {
+            alert("鼠标在上面");
+        }
+        function mouseout_test() {
+            alert("我离开了");
+        }
+        var app = new PIXI.Application(500,700); 
+        document.body.appendChild (app.view);
+
+        var plane = new PIXI.Sprite.fromImage("img/img_plane_enemy_04.png");
+        app.stage.addChild(plane);
+
+        plane.interactive = true;
+        plane.on("click",click_test); 
+        // plane.on('mousemove',mousemove_test);
+        // plane.on("mousedown",mousedown_test); 
+        // plane.on("mouseup",mousedup_test); 
+        plane.on("mouseover",mouseover_test);  
+        plane.on("mouseout",mouseout_test);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目二</title>
+    <script src="pixi.min.js"></script>
+</head>
+<body>
+    <script>
+        //alert('ok');
+        var app = new PIXI.Application(500,700);    
+        // 1.用于创建游戏应用窗口，宽度为：500，高度为：700
+        document.body.appendChild (app.view);    
+        // 2.将应用程序在浏览器上显示出来    
+        var plane = new PIXI.Sprite.fromImage("img/bg_02.png");        
+        // 3.用于创建一个图片   
+        app.stage.addChild(plane);       
+        // 4.将名字为plane的图片显示到舞台上(窗口加载图片)
+        var score = new PIXI.Text("得分：10000");
+        //用于创建一个文本，文本内容是：“得分：10000” 
+        score.text = "飞机大战游戏真好玩！";  
+        score.style.fill = 0xffffff;
+        app.stage.addChild(score); 
+        //将文本信息显示到舞台上
+        score.x=100;
+        score.y=200;
+    </script>
+      
+</body>
+</html>

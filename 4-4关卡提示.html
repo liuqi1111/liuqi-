@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-4例题</title>
+</head>
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+         function move(event) {
+            var pos = event.data.getLocalPosition(app.stage);
+            bluePlane.x = pos.x;
+            bluePlane.y = pos.y;
+            if (bluePlane.x <= 70) {
+                bluePlane.x = 70;
+            }
+            if (bluePlane.x >= 430) {
+                bluePlane.x = 430;
+            }
+            if (bluePlane.y <= 100) {
+                bluePlane.y = 100;
+            }
+            if (bluePlane.y >= 600) {
+                bluePlane.y = 600;
+            }
+
+
+        }
+        var app=new PIXI.Application(500,700);
+        document.body.appendChild (app.view);
+        var bj =new PIXI.Sprite.fromImage("img/img_bg_level_1.jpg");
+        app.stage.addChild(bj);
+
+        var bluePlane =new PIXI.Sprite.fromImage("img/plane_blue_01.png");
+        bluePlane.anchor.set(0.5,0.5);
+        app.stage.addChild(bluePlane);
+        
+        
+        var score = new PIXI.Text("终极BOSS即将出现");
+        score.style.fill = 0xffffff;
+        score.y=100;
+        score.style.fontSize="50px";
+        app.stage.addChild(score);
+
+
+        var bullet =new PIXI.Sprite.fromImage("img/bullet_01.png");
+        bullet.y=bullet.y-60;
+        bullet.anchor.set(0.5);
+        app.stage.addChild(bullet);
+
+
+        app.ticker.add(function(){
+            bj.y+=0.1;
+            if(bj.y>=0){
+                bj.y=700-1536;
+            }
+            bullet.y-=20;
+            if(bullet.y<=-56/2){
+                bullet.y=bluePlane.y;
+                bullet.x=bluePlane.x;
+            }
+        });
+        
+        bluePlane.interactive = true;
+        bluePlane.on('mousemove', move);
+    </script> 
+</body>
+</html>

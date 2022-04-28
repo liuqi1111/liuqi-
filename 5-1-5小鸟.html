@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        var app = new PIXI.Application(800, 500);
+        document.body.appendChild(app.view);
+        var bj = new PIXI.Sprite.fromImage("img/bj_01.png");
+        bj.scale.x = 3;
+        app.stage.addChild(bj);
+
+        var bird = new PIXI.Sprite.fromImage("img/bird_03.png");
+        bird.y = 100;
+        app.stage.addChild(bird);
+
+        birddied = 0;
+        birdlive = 1;
+
+        app.ticker.add(function () {
+                bird.x += 1;
+            if (bird.x >= 800) {
+                bird.x = -34
+            }
+            if (birddied == 1) {
+                bird.y -= 1;
+            }
+            if (birddied == 0) {
+                bird.y += 1;
+            }
+
+
+        });
+
+        bj.interactive = true;
+        bj.on('mousedown', function () {
+            birddied = 1;
+        });
+        bj.on('mouseup', function () {
+            birddied = 0;
+        });
+        //
+
+
+
+    </script>
+</body>
+
+</html>

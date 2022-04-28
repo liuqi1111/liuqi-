@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./pixi.min.js"></script>
+    <script>
+        function move(event){
+            zhunxing.anchor.set(0.5,0.5);
+            var pos = event.data.getLocalPosition(app.stage);    
+            zhunxing.x = pos.x;    
+            zhunxing.y = pos.y;
+            wbk_x.text="x:"+pos.x;
+            wbk_y.text="y:"+pos.y;
+        }
+        var app = new PIXI.Application(800, 600);
+        document.body.appendChild(app.view);
+        var zhunxing = new PIXI.Sprite.fromImage('img/bg1.jpg');
+        app.stage.addChild(zhunxing);
+
+        var zhunxing = new PIXI.Sprite.fromImage('img/zhunxing.png');
+        app.stage.addChild(zhunxing);
+
+        zhunxing.interactive=true;
+        zhunxing.on('mousemove',move);
+
+        var wbk_x = new PIXI.Text('x坐标:');
+        wbk_x.x=50;
+        wbk_x.y=500;
+        wbk_x.style.fill=0xffffff;
+        app.stage.addChild(wbk_x);
+
+        var wbk_y = new PIXI.Text('y坐标:');
+        wbk_y.x=50;
+        wbk_y.y=530;
+        wbk_y.style.fill=0xffffff;
+        app.stage.addChild(wbk_y);
+    </script>
+</body>
+
+</html>
